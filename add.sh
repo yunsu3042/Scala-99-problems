@@ -2,15 +2,20 @@
 
 
 echo $1
-dir="_01Lists"
-echo "package _01Lists
+if [ $1 -lt 31 ]; then 
+	dir="_01Lists"
+elif [ $1 -lt 51 ]; then 
+	dir="_02Arithmetics"
+fi 
+
+echo "package $dir
 import java.util.NoSuchElementException
 
 object P$1 {
 
 }" > ./src/main/scala/$dir/"P$1.scala"
 
-echo "package _01Lists
+echo "package $dir
 
 import org.scalatest.{FunSpec, Matchers}
 
